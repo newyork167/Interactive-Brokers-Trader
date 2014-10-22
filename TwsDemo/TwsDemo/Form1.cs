@@ -9,6 +9,7 @@ namespace TwsDemo
         private EWrapperImpl _ibClient;
         private bool _connected = false;
         private Tws tws;
+        private Form2 form2;
 
         public Form1()
         {
@@ -19,7 +20,6 @@ namespace TwsDemo
         {
             
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -40,8 +40,9 @@ namespace TwsDemo
                 {
                     try
                     {
-                        Tws.Connect(_ibClient, textBox1.Text, Convert.ToInt32(textBox2.Text), 0);
-                        _connected = _ibClient.ClientSocket.IsConnected();
+                        _connected = true;
+                        tws.Connect(textBox1.Text, Convert.ToInt32(textBox2.Text), 0);
+                        //_connected = tws.IsConnected();
                     }
                     catch (Exception ex)
                     {
@@ -51,14 +52,11 @@ namespace TwsDemo
                 }
             }
 
-            if (_connected)
-            {
-                var form2 = new Form2();
-                Visible = false;
-                form2.Visible = true;
+            if (!_connected) return;
 
-                var contract = Tws.CreateContract("AAPL");
-            }
+            form2 = new Form2(tws);
+            Visible = false;
+            form2.Visible = true;
         }
     }
 }

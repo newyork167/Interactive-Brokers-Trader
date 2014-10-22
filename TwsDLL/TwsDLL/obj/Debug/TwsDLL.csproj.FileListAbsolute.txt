@@ -4,3 +4,9 @@ c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\bin\Debug\TWS
 c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\obj\Debug\TwsDLL.csprojResolveAssemblyReference.cache
 c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\obj\Debug\TwsDLL.dll
 c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\obj\Debug\TwsDLL.pdb
+D:\GitHub\Interactive-Brokers-Trader\TwsDLL\TwsDLL\bin\Debug\TwsDLL.dll
+D:\GitHub\Interactive-Brokers-Trader\TwsDLL\TwsDLL\bin\Debug\TwsDLL.pdb
+D:\GitHub\Interactive-Brokers-Trader\TwsDLL\TwsDLL\bin\Debug\TWSLib.dll
+D:\GitHub\Interactive-Brokers-Trader\TwsDLL\TwsDLL\obj\Debug\TwsDLL.csprojResolveAssemblyReference.cache
+D:\GitHub\Interactive-Brokers-Trader\TwsDLL\TwsDLL\obj\Debug\TwsDLL.dll
+D:\GitHub\Interactive-Brokers-Trader\TwsDLL\TwsDLL\obj\Debug\TwsDLL.pdb
