@@ -1,0 +1,884 @@
+/* Copyright (C) 2013 Interactive Brokers LLC. All rights reserved. This code is subject to the terms
+ * and conditions of the IB API Non-Commercial License or the IB API Commercial License, as applicable. */
+
+// Tws.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (Tws.tlb) that will become a resource in
+// Tws.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+import "ocidl.idl";
+import "oaidl.idl";
+
+
+[ uuid(0A77CCF5-052C-11D6-B0EC-00B0D074179C), version(1.0),
+  helpfile("Tws.hlp"),
+  helpstring("Tws ActiveX Control module"),
+  control ]
+library TWSLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	[
+		object,
+		uuid(573E95CF-F67C-4367-A95B-CB7599BD0673),
+		dual,
+		nonextensible,
+		helpstring("IComboLeg Interface"),
+		pointer_default(unique)
+	]
+	interface IComboLeg : IDispatch{
+		[propget, id(1), helpstring("property conId")] HRESULT conId([out, retval] LONG* pVal);
+		[propput, id(1), helpstring("property conId")] HRESULT conId([in] LONG newVal);
+		[propget, id(2), helpstring("property ratio")] HRESULT ratio([out, retval] LONG* pVal);
+		[propput, id(2), helpstring("property ratio")] HRESULT ratio([in] LONG newVal);
+		[propget, id(3), helpstring("property action")] HRESULT action([out, retval] BSTR* pVal);
+		[propput, id(3), helpstring("property action")] HRESULT action([in] BSTR newVal);
+		[propget, id(4), helpstring("property exchange")] HRESULT exchange([out, retval] BSTR* pVal);
+		[propput, id(4), helpstring("property exchange")] HRESULT exchange([in] BSTR newVal);
+		[propget, id(5), helpstring("property openClose")] HRESULT openClose([out, retval] LONG* pVal);
+		[propput, id(5), helpstring("property openClose")] HRESULT openClose([in] LONG newVal);
+		[propget, id(6), helpstring("property shortSaleSlot")] HRESULT shortSaleSlot([out, retval] LONG* pVal);
+		[propput, id(6), helpstring("property shortSaleSlot")] HRESULT shortSaleSlot([in] LONG newVal);
+		[propget, id(7), helpstring("property designatedLocation")] HRESULT designatedLocation([out, retval] BSTR* pVal);
+		[propput, id(7), helpstring("property designatedLocation")] HRESULT designatedLocation([in] BSTR newVal);
+		[propget, id(8), helpstring("property exemptCode")] HRESULT exemptCode([out, retval] LONG* pVal);
+		[propput, id(8), helpstring("property exemptCode")] HRESULT exemptCode([in] LONG newVal);
+	};
+
+	[
+		object,
+		uuid(BE3E5CD3-6F13-4D39-981C-4F75C063C2BA),
+		dual,
+		nonextensible,
+		helpstring("IComboLegList Interface"),
+		pointer_default(unique),
+		// Use the IEnumerable custom attribute.
+		//custom(B64784EB-D8D4-4d9b-9ACD-0E30806426F7, "")
+	]
+	interface IComboLegList : IDispatch{
+		[propget, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** pVal);
+		[propget, id(DISPID_VALUE)] HRESULT Item([in] LONG index, [out, retval] IDispatch** pVal);
+		[propget, id(1)] HRESULT Count([out, retval] LONG* pVal);
+		[id(2)] HRESULT Add([out, retval] IDispatch** leg);
+	};
+
+	[
+		object,
+		uuid(E5EE73C4-7D45-428E-A347-821CBF918AA6),
+		dual,
+		nonextensible,
+		helpstring("IUnderComp Interface"),
+		pointer_default(unique)
+	]
+	interface IUnderComp : IDispatch{
+		[propget, id(1), helpstring("property conId")] HRESULT conId([out, retval] LONG* pVal);
+		[propput, id(1), helpstring("property conId")] HRESULT conId([in] LONG newVal);
+		[propget, id(2), helpstring("property delta")] HRESULT delta([out, retval] DOUBLE* pVal);
+		[propput, id(2), helpstring("property delta")] HRESULT delta([in] DOUBLE newVal);
+		[propget, id(3), helpstring("property price")] HRESULT price([out, retval] DOUBLE* pVal);
+		[propput, id(3), helpstring("property price")] HRESULT price([in] DOUBLE newVal);
+	};
+
+	[
+		object,
+		uuid(AE6A66F3-8FA9-4076-9C1F-3728B10A4CC7),
+		dual,
+		nonextensible,
+		helpstring("IContract Interface"),
+		pointer_default(unique)
+	]
+	interface IContract : IDispatch{
+		[propget, id(1), helpstring("property conId")] HRESULT conId([out, retval] LONG* pVal);
+		[propput, id(1), helpstring("property conId")] HRESULT conId([in] LONG newVal);
+		[propget, id(2), helpstring("property symbol")] HRESULT symbol([out, retval] BSTR* pVal);
+		[propput, id(2), helpstring("property symbol")] HRESULT symbol([in] BSTR newVal);
+		[propget, id(3), helpstring("property secType")] HRESULT secType([out, retval] BSTR* pVal);
+		[propput, id(3), helpstring("property secType")] HRESULT secType([in] BSTR newVal);
+		[propget, id(4), helpstring("property expiry")] HRESULT expiry([out, retval] BSTR* pVal);
+		[propput, id(4), helpstring("property expiry")] HRESULT expiry([in] BSTR newVal);
+		[propget, id(5), helpstring("property strike")] HRESULT strike([out, retval] DOUBLE* pVal);
+		[propput, id(5), helpstring("property strike")] HRESULT strike([in] DOUBLE newVal);
+		[propget, id(6), helpstring("property right")] HRESULT right([out, retval] BSTR* pVal);
+		[propput, id(6), helpstring("property right")] HRESULT right([in] BSTR newVal);
+		[propget, id(7), helpstring("property multiplier")] HRESULT multiplier([out, retval] BSTR* pVal);
+		[propput, id(7), helpstring("property multiplier")] HRESULT multiplier([in] BSTR newVal);
+		[propget, id(8), helpstring("property exchange")] HRESULT exchange([out, retval] BSTR* pVal);
+		[propput, id(8), helpstring("property exchange")] HRESULT exchange([in] BSTR newVal);
+		[propget, id(9), helpstring("property primaryExchange")] HRESULT primaryExchange([out, retval] BSTR* pVal);
+		[propput, id(9), helpstring("property primaryExchange")] HRESULT primaryExchange([in] BSTR newVal);
+		[propget, id(10), helpstring("property currency")] HRESULT currency([out, retval] BSTR* pVal);
+		[propput, id(10), helpstring("property currency")] HRESULT currency([in] BSTR newVal);
+		[propget, id(11), helpstring("property localSymbol")] HRESULT localSymbol([out, retval] BSTR* pVal);
+		[propput, id(11), helpstring("property localSymbol")] HRESULT localSymbol([in] BSTR newVal);
+		[propget, id(12), helpstring("property tradingClass")] HRESULT tradingClass([out, retval] BSTR* pVal);
+		[propput, id(12), helpstring("property tradingClass")] HRESULT tradingClass([in] BSTR newVal);
+		[propget, id(13), helpstring("property includeExpired")] HRESULT includeExpired([out, retval] BOOL* pVal);
+		[propput, id(13), helpstring("property includeExpired")] HRESULT includeExpired([in] BOOL newVal);
+
+		[propget, id(14), helpstring("property comboLegs")] HRESULT comboLegs([out, retval] IDispatch** pVal);
+		[propputref, id(14), helpstring("property comboLegs")] HRESULT comboLegs([in] IDispatch* newVal);
+		[propget, id(15), helpstring("property underComp")] HRESULT underComp([out, retval] IDispatch** pVal);
+		[propputref, id(15), helpstring("property underComp")] HRESULT underComp([in] IDispatch* newVal);
+
+		[propget, id(16), helpstring("property comboLegsDescrip")] HRESULT comboLegsDescrip([out, retval] BSTR* pVal);
+
+		[propget, id(17), helpstring("property secIdType")] HRESULT secIdType([out, retval] BSTR* pVal);
+		[propput, id(17), helpstring("property secIdType")] HRESULT secIdType([in] BSTR newVal);
+		[propget, id(18), helpstring("property secId")] HRESULT secId([out, retval] BSTR* pVal);
+		[propput, id(18), helpstring("property secId")] HRESULT secId([in] BSTR newVal);
+	};
+
+	[
+		object,
+		uuid(64F03988-ED93-452E-830B-3420DF21BAF9),
+		dual,
+		nonextensible,
+		helpstring("IContractDetails Interface"),
+		pointer_default(unique)
+	]
+	interface IContractDetails : IDispatch{
+
+		[propget, id(1), helpstring("property marketName")] HRESULT marketName([out, retval] BSTR* pVal);
+		[propget, id(3), helpstring("property minTick")] HRESULT minTick([out, retval] DOUBLE* pVal);
+		[propget, id(4), helpstring("property priceMagnifier")] HRESULT priceMagnifier([out, retval] LONG* pVal);
+		[propget, id(5), helpstring("property orderTypes")] HRESULT orderTypes([out, retval] BSTR* pVal);
+		[propget, id(6), helpstring("property validExchanges")] HRESULT validExchanges([out, retval] BSTR* pVal);
+		[propget, id(7), helpstring("property underConId")] HRESULT underConId([out, retval] LONG* pVal);
+		[propget, id(8), helpstring("property longName")] HRESULT longName([out, retval] BSTR* pVal);
+		[propget, id(9), helpstring("property contractMonth")] HRESULT contractMonth([out, retval] BSTR* pVal);
+		[propget, id(10), helpstring("property industry")] HRESULT industry([out, retval] BSTR* pVal);
+		[propget, id(11), helpstring("property category")] HRESULT category([out, retval] BSTR* pVal);
+		[propget, id(12), helpstring("property subcategory")] HRESULT subcategory([out, retval] BSTR* pVal);
+		[propget, id(13), helpstring("property timeZoneId")] HRESULT timeZoneId([out, retval] BSTR* pVal);
+		[propget, id(14), helpstring("property tradingHours")] HRESULT tradingHours([out, retval] BSTR* pVal);
+		[propget, id(15), helpstring("property liquidHours")] HRESULT liquidHours([out, retval] BSTR* pVal);
+
+		[propget, id(16), helpstring("property summary")] HRESULT summary([out, retval] IDispatch** pVal);
+
+		// CUSIP/ISIN/etc.
+		[propget, id(17), helpstring("property secIdList")] HRESULT secIdList([out, retval] IDispatch** pVal);
+
+		// BOND specific properties
+		[propget, id(20), helpstring("property cusip")] HRESULT cusip([out, retval] BSTR* pVal);
+		[propget, id(21), helpstring("property ratings")] HRESULT ratings([out, retval] BSTR* pVal);
+		[propget, id(22), helpstring("property descAppend")] HRESULT descAppend([out, retval] BSTR* pVal);
+		[propget, id(23), helpstring("property bondType")] HRESULT bondType([out, retval] BSTR* pVal);
+		[propget, id(24), helpstring("property couponType")] HRESULT couponType([out, retval] BSTR* pVal);
+		[propget, id(25), helpstring("property callable")] HRESULT callable([out, retval] BOOL* pVal);
+		[propget, id(26), helpstring("property putable")] HRESULT putable([out, retval] BOOL* pVal);
+		[propget, id(27), helpstring("property coupon")] HRESULT coupon([out, retval] DOUBLE* pVal);
+		[propget, id(28), helpstring("property convertible")] HRESULT convertible([out, retval] BOOL* pVal);
+		[propget, id(29), helpstring("property maturity")] HRESULT maturity([out, retval] BSTR* pVal);
+		[propget, id(30), helpstring("property issueDate")] HRESULT issueDate([out, retval] BSTR* pVal);
+		[propget, id(31), helpstring("property nextOptionDate")] HRESULT nextOptionDate([out, retval] BSTR* pVal);
+		[propget, id(32), helpstring("property nextOptionType")] HRESULT nextOptionType([out, retval] BSTR* pVal);
+		[propget, id(33), helpstring("property nextOptionPartial")] HRESULT nextOptionPartial([out, retval] BOOL* pVal);
+		[propget, id(34), helpstring("property notes")] HRESULT notes([out, retval] BSTR* pVal);
+		[propget, id(35), helpstring("property evRule")] HRESULT evRule([out, retval] BSTR* pVal);
+		[propget, id(36), helpstring("property evMultiplier")] HRESULT evMultiplier([out, retval] DOUBLE* pVal);
+	};
+
+	[
+		object,
+		uuid(06FF1D3F-F12F-47D1-9443-A74D3CD58723),
+		dual,
+		nonextensible,
+		helpstring("ITagValue Interface"),
+		pointer_default(unique)
+	]
+	interface ITagValue : IDispatch{
+		[propget, id(1), helpstring("property tag")] HRESULT tag([out, retval] BSTR* pVal);
+		[propput, id(1), helpstring("property tag")] HRESULT tag([in] BSTR newVal);
+		[propget, id(2), helpstring("property value")] HRESULT value([out, retval] BSTR* pVal);
+		[propput, id(2), helpstring("property value")] HRESULT value([in] BSTR newVal);
+	};
+
+	[
+		object,
+		uuid(CC48E64E-C1A7-4867-8738-578404D75088),
+		dual,
+		nonextensible,
+		helpstring("ITagValueList Interface"),
+		pointer_default(unique),
+		// Use the IEnumerable custom attribute.
+		//custom(B64784EB-D8D4-4d9b-9ACD-0E30806426F7, "")
+	]
+	interface ITagValueList : IDispatch{
+		[propget, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** pVal);
+		[propget, id(DISPID_VALUE)] HRESULT Item([in] LONG index, [out, retval] IDispatch** pVal);
+		[propget, id(1)] HRESULT Count([out, retval] LONG* pVal);
+		[id(2)] HRESULT AddEmpty([out, retval] IDispatch** leg);
+		[id(3)] HRESULT Add([in] BSTR tag, [in] BSTR value, [out, retval] IDispatch** leg);
+	};
+
+	[
+		object,
+		uuid(25D97F3D-2C4D-4080-9250-D2FB8071BE58),
+		dual,
+		nonextensible,
+		helpstring("IOrder Interface"),
+		pointer_default(unique)
+	]
+	interface IOrder : IDispatch{
+
+		// main order fields
+		[propget, id(1), helpstring("property orderId")] HRESULT orderId([out, retval] LONG* pVal);
+		[propput, id(1), helpstring("property orderId")] HRESULT orderId([in] LONG newVal);
+		[propget, id(2), helpstring("property clientId")] HRESULT clientId([out, retval] LONG* pVal);
+		[propput, id(2), helpstring("property clientId")] HRESULT clientId([in] LONG newVal);
+		[propget, id(3), helpstring("property permId")] HRESULT permId([out, retval] LONG* pVal);
+		[propput, id(3), helpstring("property permId")] HRESULT permId([in] LONG newVal);
+		[propget, id(4), helpstring("property action")] HRESULT action([out, retval] BSTR* pVal);
+		[propput, id(4), helpstring("property action")] HRESULT action([in] BSTR newVal);
+		[propget, id(5), helpstring("property totalQuantity")] HRESULT totalQuantity([out, retval] LONG* pVal);
+		[propput, id(5), helpstring("property totalQuantity")] HRESULT totalQuantity([in] LONG newVal);
+		[propget, id(6), helpstring("property orderType")] HRESULT orderType([out, retval] BSTR* pVal);
+		[propput, id(6), helpstring("property orderType")] HRESULT orderType([in] BSTR newVal);
+		[propget, id(7), helpstring("property lmtPrice")] HRESULT lmtPrice([out, retval] DOUBLE* pVal);
+		[propput, id(7), helpstring("property lmtPrice")] HRESULT lmtPrice([in] DOUBLE newVal);
+		[propget, id(8), helpstring("property auxPrice")] HRESULT auxPrice([out, retval] DOUBLE* pVal);
+		[propput, id(8), helpstring("property auxPrice")] HRESULT auxPrice([in] DOUBLE newVal);
+
+		// extended order fields
+		[propget, id(20), helpstring("property timeInForce")] HRESULT timeInForce([out, retval] BSTR* pVal);
+		[propput, id(20), helpstring("property timeInForce")] HRESULT timeInForce([in] BSTR newVal);
+		[propget, id(140), helpstring("property activeStartTime")] HRESULT activeStartTime([out, retval] BSTR* pVal);
+		[propput, id(140), helpstring("property activeStartTime")] HRESULT activeStartTime([in] BSTR newVal);
+		[propget, id(141), helpstring("property activeStopTime")] HRESULT activeStopTime([out, retval] BSTR* pVal);
+		[propput, id(141), helpstring("property activeStopTime")] HRESULT activeStopTime([in] BSTR newVal);
+		[propget, id(21), helpstring("property ocaGroup")] HRESULT ocaGroup([out, retval] BSTR* pVal);
+		[propput, id(21), helpstring("property ocaGroup")] HRESULT ocaGroup([in] BSTR newVal);
+		[propget, id(22), helpstring("property ocaType")] HRESULT ocaType([out, retval] LONG* pVal);
+		[propput, id(22), helpstring("property ocaType")] HRESULT ocaType([in] LONG newVal);
+		[propget, id(23), helpstring("property orderRef")] HRESULT orderRef([out, retval] BSTR* pVal);
+		[propput, id(23), helpstring("property orderRef")] HRESULT orderRef([in] BSTR newVal);
+		[propget, id(24), helpstring("property transmit")] HRESULT transmit([out, retval] BOOL* pVal);
+		[propput, id(24), helpstring("property transmit")] HRESULT transmit([in] BOOL newVal);
+		[propget, id(25), helpstring("property parentId")] HRESULT parentId([out, retval] LONG* pVal);
+		[propput, id(25), helpstring("property parentId")] HRESULT parentId([in] LONG newVal);
+		[propget, id(26), helpstring("property blockOrder")] HRESULT blockOrder([out, retval] BOOL* pVal);
+		[propput, id(26), helpstring("property blockOrder")] HRESULT blockOrder([in] BOOL newVal);
+		[propget, id(27), helpstring("property sweepToFill")] HRESULT sweepToFill([out, retval] BOOL* pVal);
+		[propput, id(27), helpstring("property sweepToFill")] HRESULT sweepToFill([in] BOOL newVal);
+		[propget, id(28), helpstring("property displaySize")] HRESULT displaySize([out, retval] LONG* pVal);
+		[propput, id(28), helpstring("property displaySize")] HRESULT displaySize([in] LONG newVal);
+		[propget, id(29), helpstring("property triggerMethod")] HRESULT triggerMethod([out, retval] LONG* pVal);
+		[propput, id(29), helpstring("property triggerMethod")] HRESULT triggerMethod([in] LONG newVal);
+		[propget, id(30), helpstring("property outsideRth")] HRESULT outsideRth([out, retval] BOOL* pVal);
+		[propput, id(30), helpstring("property outsideRth")] HRESULT outsideRth([in] BOOL newVal);
+		[propget, id(31), helpstring("property hidden")] HRESULT hidden([out, retval] BOOL* pVal);
+		[propput, id(31), helpstring("property hidden")] HRESULT hidden([in] BOOL newVal);
+		[propget, id(32), helpstring("property goodAfterTime")] HRESULT goodAfterTime([out, retval] BSTR* pVal);
+		[propput, id(32), helpstring("property goodAfterTime")] HRESULT goodAfterTime([in] BSTR newVal);
+		[propget, id(33), helpstring("property goodTillDate")] HRESULT goodTillDate([out, retval] BSTR* pVal);
+		[propput, id(33), helpstring("property goodTillDate")] HRESULT goodTillDate([in] BSTR newVal);
+		[propget, id(35), helpstring("property overridePercentageConstraints")] HRESULT overridePercentageConstraints([out, retval] BOOL* pVal);
+		[propput, id(35), helpstring("property overridePercentageConstraints")] HRESULT overridePercentageConstraints([in] BOOL newVal);
+		[propget, id(36), helpstring("property rule80A")] HRESULT rule80A([out, retval] BSTR* pVal);
+		[propput, id(36), helpstring("property rule80A")] HRESULT rule80A([in] BSTR newVal);
+		[propget, id(37), helpstring("property allOrNone")] HRESULT allOrNone([out, retval] BOOL* pVal);
+		[propput, id(37), helpstring("property allOrNone")] HRESULT allOrNone([in] BOOL newVal);
+		[propget, id(38), helpstring("property minQty")] HRESULT minQty([out, retval] LONG* pVal);
+		[propput, id(38), helpstring("property minQty")] HRESULT minQty([in] LONG newVal);
+		[propget, id(39), helpstring("property percentOffset")] HRESULT percentOffset([out, retval] DOUBLE* pVal);
+		[propput, id(39), helpstring("property percentOffset")] HRESULT percentOffset([in] DOUBLE newVal);
+		[propget, id(40), helpstring("property trailStopPrice")] HRESULT trailStopPrice([out, retval] DOUBLE* pVal);
+		[propput, id(40), helpstring("property trailStopPrice")] HRESULT trailStopPrice([in] DOUBLE newVal);
+		[propget, id(44), helpstring("property trailingPercent")] HRESULT trailingPercent([out, retval] DOUBLE* pVal);
+		[propput, id(44), helpstring("property trailingPercent")] HRESULT trailingPercent([in] DOUBLE newVal);
+		[propget, id(41), helpstring("property whatIf")] HRESULT whatIf([out, retval] BOOL* pVal);
+		[propput, id(41), helpstring("property whatIf")] HRESULT whatIf([in] BOOL newVal);
+		[propget, id(42), helpstring("property notHeld")] HRESULT notHeld([out, retval] BOOL* pVal);
+		[propput, id(42), helpstring("property notHeld")] HRESULT notHeld([in] BOOL newVal);
+
+		// Financial advisors only
+		[propget, id(60), helpstring("property faGroup")] HRESULT faGroup([out, retval] BSTR* pVal);
+		[propput, id(60), helpstring("property faGroup")] HRESULT faGroup([in] BSTR newVal);
+		[propget, id(61), helpstring("property faProfile")] HRESULT faProfile([out, retval] BSTR* pVal);
+		[propput, id(61), helpstring("property faProfile")] HRESULT faProfile([in] BSTR newVal);
+		[propget, id(62), helpstring("property faMethod")] HRESULT faMethod([out, retval] BSTR* pVal);
+		[propput, id(62), helpstring("property faMethod")] HRESULT faMethod([in] BSTR newVal);
+		[propget, id(63), helpstring("property faPercentage")] HRESULT faPercentage([out, retval] BSTR* pVal);
+		[propput, id(63), helpstring("property faPercentage")] HRESULT faPercentage([in] BSTR newVal);
+
+		// Institutional orders only
+		[propget, id(72), helpstring("property openClose")] HRESULT openClose([out, retval] BSTR* pVal);
+		[propput, id(72), helpstring("property openClose")] HRESULT openClose([in] BSTR newVal);
+		[propget, id(73), helpstring("property origin")] HRESULT origin([out, retval] LONG* pVal);
+		[propput, id(73), helpstring("property origin")] HRESULT origin([in] LONG newVal);
+		[propget, id(74), helpstring("property shortSaleSlot")] HRESULT shortSaleSlot([out, retval] LONG* pVal);
+		[propput, id(74), helpstring("property shortSaleSlot")] HRESULT shortSaleSlot([in] LONG newVal);
+		[propget, id(75), helpstring("property designatedLocation")] HRESULT designatedLocation([out, retval] BSTR* pVal);
+		[propput, id(75), helpstring("property designatedLocation")] HRESULT designatedLocation([in] BSTR newVal);
+		[propget, id(76), helpstring("property exemptCode")] HRESULT exemptCode([out, retval] LONG* pVal);
+		[propput, id(76), helpstring("property exemptCode")] HRESULT exemptCode([in] LONG newVal);
+
+		// SMART routing only
+		[propget, id(80), helpstring("property discretionaryAmt")] HRESULT discretionaryAmt([out, retval] DOUBLE* pVal);
+		[propput, id(80), helpstring("property discretionaryAmt")] HRESULT discretionaryAmt([in] DOUBLE newVal);
+		[propget, id(81), helpstring("property eTradeOnly")] HRESULT eTradeOnly([out, retval] BOOL* pVal);
+		[propput, id(81), helpstring("property eTradeOnly")] HRESULT eTradeOnly([in] BOOL newVal);
+		[propget, id(82), helpstring("property firmQuoteOnly")] HRESULT firmQuoteOnly([out, retval] BOOL* pVal);
+		[propput, id(82), helpstring("property firmQuoteOnly")] HRESULT firmQuoteOnly([in] BOOL newVal);
+		[propget, id(83), helpstring("property nbboPriceCap")] HRESULT nbboPriceCap([out, retval] DOUBLE* pVal);
+		[propput, id(83), helpstring("property nbboPriceCap")] HRESULT nbboPriceCap([in] DOUBLE newVal);
+		[propget, id(84), helpstring("property optOutSmartRouting")] HRESULT optOutSmartRouting([out, retval] BOOL* pVal);
+		[propput, id(84), helpstring("property optOutSmartRouting")] HRESULT optOutSmartRouting([in] BOOL newVal);
+
+		// BOX or VOL orders only
+		[propget, id(90), helpstring("property auctionStrategy")] HRESULT auctionStrategy([out, retval] LONG* pVal);
+		[propput, id(90), helpstring("property auctionStrategy")] HRESULT auctionStrategy([in] LONG newVal);
+
+		// BOX order only
+		[propget, id(91), helpstring("property startingPrice")] HRESULT startingPrice([out, retval] DOUBLE* pVal);
+		[propput, id(91), helpstring("property startingPrice")] HRESULT startingPrice([in] DOUBLE newVal);
+		[propget, id(92), helpstring("property stockRefPrice")] HRESULT stockRefPrice([out, retval] DOUBLE* pVal);
+		[propput, id(92), helpstring("property stockRefPrice")] HRESULT stockRefPrice([in] DOUBLE newVal);
+		[propget, id(93), helpstring("property delta")] HRESULT delta([out, retval] DOUBLE* pVal);
+		[propput, id(93), helpstring("property delta")] HRESULT delta([in] DOUBLE newVal);
+
+		// pegged to stock or VOL orders
+		[propget, id(94), helpstring("property stockRangeLower")] HRESULT stockRangeLower([out, retval] DOUBLE* pVal);
+		[propput, id(94), helpstring("property stockRangeLower")] HRESULT stockRangeLower([in] DOUBLE newVal);
+		[propget, id(95), helpstring("property stockRangeUpper")] HRESULT stockRangeUpper([out, retval] DOUBLE* pVal);
+		[propput, id(95), helpstring("property stockRangeUpper")] HRESULT stockRangeUpper([in] DOUBLE newVal);
+
+		// VOLATILITY orders only
+		[propget, id(96), helpstring("property volatility")] HRESULT volatility([out, retval] DOUBLE* pVal);
+		[propput, id(96), helpstring("property volatility")] HRESULT volatility([in] DOUBLE newVal);
+		[propget, id(97), helpstring("property volatilityType")] HRESULT volatilityType([out, retval] LONG* pVal);
+		[propput, id(97), helpstring("property volatilityType")] HRESULT volatilityType([in] LONG newVal);
+		[propget, id(98), helpstring("property continuousUpdate")] HRESULT continuousUpdate([out, retval] BOOL* pVal);
+		[propput, id(98), helpstring("property continuousUpdate")] HRESULT continuousUpdate([in] BOOL newVal);
+		[propget, id(99), helpstring("property referencePriceType")] HRESULT referencePriceType([out, retval] LONG* pVal);
+		[propput, id(99), helpstring("property referencePriceType")] HRESULT referencePriceType([in] LONG newVal);
+		[propget, id(100), helpstring("property deltaNeutralOrderType")] HRESULT deltaNeutralOrderType([out, retval] BSTR* pVal);
+		[propput, id(100), helpstring("property deltaNeutralOrderType")] HRESULT deltaNeutralOrderType([in] BSTR newVal);
+		[propget, id(101), helpstring("property deltaNeutralAuxPrice")] HRESULT deltaNeutralAuxPrice([out, retval] DOUBLE* pVal);
+		[propput, id(101), helpstring("property deltaNeutralAuxPrice")] HRESULT deltaNeutralAuxPrice([in] DOUBLE newVal);
+		[propget, id(123), helpstring("property deltaNeutralConId")] HRESULT deltaNeutralConId([out, retval] LONG* pVal);
+		[propput, id(123), helpstring("property deltaNeutralConId")] HRESULT deltaNeutralConId([in] LONG newVal);
+		[propget, id(124), helpstring("property deltaNeutralSettlingFirm")] HRESULT deltaNeutralSettlingFirm([out, retval] BSTR* pVal);
+		[propput, id(124), helpstring("property deltaNeutralSettlingFirm")] HRESULT deltaNeutralSettlingFirm([in] BSTR newVal);
+		[propget, id(125), helpstring("property deltaNeutralClearingAccount")] HRESULT deltaNeutralClearingAccount([out, retval] BSTR* pVal);
+		[propput, id(125), helpstring("property deltaNeutralClearingAccount")] HRESULT deltaNeutralClearingAccount([in] BSTR newVal);
+		[propget, id(126), helpstring("property deltaNeutralClearingIntent")] HRESULT deltaNeutralClearingIntent([out, retval] BSTR* pVal);
+		[propput, id(126), helpstring("property deltaNeutralClearingIntent")] HRESULT deltaNeutralClearingIntent([in] BSTR newVal);
+		[propget, id(135), helpstring("property deltaNeutralOpenClose")] HRESULT deltaNeutralOpenClose([out, retval] BSTR* pVal);
+		[propput, id(135), helpstring("property deltaNeutralOpenClose")] HRESULT deltaNeutralOpenClose([in] BSTR newVal);
+		[propget, id(136), helpstring("property deltaNeutralShortSale")] HRESULT deltaNeutralShortSale([out, retval] BOOL* pVal);
+		[propput, id(136), helpstring("property deltaNeutralShortSale")] HRESULT deltaNeutralShortSale([in] BOOL newVal);
+		[propget, id(137), helpstring("property deltaNeutralShortSaleSlot")] HRESULT deltaNeutralShortSaleSlot([out, retval] LONG* pVal);
+		[propput, id(137), helpstring("property deltaNeutralShortSaleSlot")] HRESULT deltaNeutralShortSaleSlot([in] LONG newVal);
+		[propget, id(138), helpstring("property deltaNeutralDesignatedLocation")] HRESULT deltaNeutralDesignatedLocation([out, retval] BSTR* pVal);
+		[propput, id(138), helpstring("property deltaNeutralDesignatedLocation")] HRESULT deltaNeutralDesignatedLocation([in] BSTR newVal);
+
+		// COMBO orders only
+		[propget, id(102), helpstring("property basisPoints")] HRESULT basisPoints([out, retval] DOUBLE* pVal);
+		[propput, id(102), helpstring("property basisPoints")] HRESULT basisPoints([in] DOUBLE newVal);
+		[propget, id(103), helpstring("property basisPointsType")] HRESULT basisPointsType([out, retval] LONG* pVal);
+		[propput, id(103), helpstring("property basisPointsType")] HRESULT basisPointsType([in] LONG newVal);
+
+		// SCALE orders only
+		[propget, id(104), helpstring("property scaleInitLevelSize")] HRESULT scaleInitLevelSize([out, retval] LONG* pVal);
+		[propput, id(104), helpstring("property scaleInitLevelSize")] HRESULT scaleInitLevelSize([in] LONG newVal);
+		[propget, id(105), helpstring("property scaleSubsLevelSize")] HRESULT scaleSubsLevelSize([out, retval] LONG* pVal);
+		[propput, id(105), helpstring("property scaleSubsLevelSize")] HRESULT scaleSubsLevelSize([in] LONG newVal);
+		[propget, id(106), helpstring("property scalePriceIncrement")] HRESULT scalePriceIncrement([out, retval] DOUBLE* pVal);
+		[propput, id(106), helpstring("property scalePriceIncrement")] HRESULT scalePriceIncrement([in] DOUBLE newVal);
+		[propget, id(127), helpstring("property scalePriceAdjustValue")] HRESULT scalePriceAdjustValue([out, retval] DOUBLE* pVal);
+		[propput, id(127), helpstring("property scalePriceAdjustValue")] HRESULT scalePriceAdjustValue([in] DOUBLE newVal);
+		[propget, id(128), helpstring("property scalePriceAdjustInterval")] HRESULT scalePriceAdjustInterval([out, retval] LONG* pVal);
+		[propput, id(128), helpstring("property scalePriceAdjustInterval")] HRESULT scalePriceAdjustInterval([in] LONG newVal);
+		[propget, id(129), helpstring("property scaleProfitOffset")] HRESULT scaleProfitOffset([out, retval] DOUBLE* pVal);
+		[propput, id(129), helpstring("property scaleProfitOffset")] HRESULT scaleProfitOffset([in] DOUBLE newVal);
+		[propget, id(130), helpstring("property scaleAutoReset")] HRESULT scaleAutoReset([out, retval] BOOL* pVal);
+		[propput, id(130), helpstring("property scaleAutoReset")] HRESULT scaleAutoReset([in] BOOL newVal);
+		[propget, id(131), helpstring("property scaleInitPosition")] HRESULT scaleInitPosition([out, retval] LONG* pVal);
+		[propput, id(131), helpstring("property scaleInitPosition")] HRESULT scaleInitPosition([in] LONG newVal);
+		[propget, id(132), helpstring("property scaleInitFillQty")] HRESULT scaleInitFillQty([out, retval] LONG* pVal);
+		[propput, id(132), helpstring("property scaleInitFillQty")] HRESULT scaleInitFillQty([in] LONG newVal);
+		[propget, id(133), helpstring("property scaleRandomPercent")] HRESULT scaleRandomPercent([out, retval] BOOL* pVal);
+		[propput, id(133), helpstring("property scaleRandomPercent")] HRESULT scaleRandomPercent([in] BOOL newVal);
+		[propget, id(139), helpstring("property scaleTable")] HRESULT scaleTable([out, retval] BSTR* pVal);
+		[propput, id(139), helpstring("property scaleTable")] HRESULT scaleTable([in] BSTR newVal);
+
+		// HEDGE orders only
+		[propget, id(107), helpstring("property hedgeType")] HRESULT hedgeType([out, retval] BSTR* pVal);
+		[propput, id(107), helpstring("property hedgeType")] HRESULT hedgeType([in] BSTR newVal);
+		[propget, id(108), helpstring("property hedgeParam")] HRESULT hedgeParam([out, retval] BSTR* pVal);
+		[propput, id(108), helpstring("property hedgeParam")] HRESULT hedgeParam([in] BSTR newVal);
+
+		// Clearing info
+		[propget, id(110), helpstring("property account")] HRESULT account([out, retval] BSTR* pVal);
+		[propput, id(110), helpstring("property account")] HRESULT account([in] BSTR newVal);
+		[propget, id(111), helpstring("property settlingFirm")] HRESULT settlingFirm([out, retval] BSTR* pVal);
+		[propput, id(111), helpstring("property settlingFirm")] HRESULT settlingFirm([in] BSTR newVal);
+		[propget, id(112), helpstring("property clearingAccount")] HRESULT clearingAccount([out, retval] BSTR* pVal);
+		[propput, id(112), helpstring("property clearingAccount")] HRESULT clearingAccount([in] BSTR newVal);
+		[propget, id(113), helpstring("property clearingIntent")] HRESULT clearingIntent([out, retval] BSTR* pVal);
+		[propput, id(113), helpstring("property clearingIntent")] HRESULT clearingIntent([in] BSTR newVal);
+
+		// ALGO orders only
+		[propget, id(120), helpstring("property algoStrategy")] HRESULT algoStrategy([out, retval] BSTR* pVal);
+		[propput, id(120), helpstring("property algoStrategy")] HRESULT algoStrategy([in] BSTR newVal);
+		[propget, id(121), helpstring("property algoParams")] HRESULT algoParams([out, retval] IDispatch** pVal);
+		[propputref, id(121), helpstring("property algoParams")] HRESULT algoParams([in] IDispatch* newVal);
+
+		// Smart combo routing params
+		[propget, id(122), helpstring("property smartComboRoutingParams")] HRESULT smartComboRoutingParams([out, retval] IDispatch** pVal);
+		[propputref, id(122), helpstring("property smartComboRoutingParams")] HRESULT smartComboRoutingParams([in] IDispatch* newVal);
+
+		// order combo legs
+		[propget, id(134), helpstring("property orderComboLegs")] HRESULT orderComboLegs([out, retval] IDispatch** pVal);
+		[propputref, id(134), helpstring("property orderComboLegs")] HRESULT orderComboLegs([in] IDispatch* newVal);
+
+		// order misc options
+		[propget, id(142), helpstring("property orderMiscOptions")] HRESULT orderMiscOptions([out, retval] IDispatch** pVal);
+		[propputref, id(142), helpstring("property orderMiscOptions")] HRESULT orderMiscOptions([in] IDispatch* newVal);
+
+	};
+
+	[
+		object,
+		uuid(7B33AE1F-99B0-4BCB-A024-42335897A6AF),
+		dual,
+		nonextensible,
+		helpstring("IOrderState Interface"),
+		pointer_default(unique)
+	]
+	interface IOrderState : IDispatch{
+		[propget, id(1), helpstring("property status")] HRESULT status([out, retval] BSTR* pVal);
+		[propget, id(2), helpstring("property initMargin")] HRESULT initMargin([out, retval] BSTR* pVal);
+		[propget, id(3), helpstring("property maintMargin")] HRESULT maintMargin([out, retval] BSTR* pVal);
+		[propget, id(4), helpstring("property equityWithLoan")] HRESULT equityWithLoan([out, retval] BSTR* pVal);
+		[propget, id(5), helpstring("property commission")] HRESULT commission([out, retval] DOUBLE* pVal);
+		[propget, id(6), helpstring("property minCommission")] HRESULT minCommission([out, retval] DOUBLE* pVal);
+		[propget, id(7), helpstring("property maxCommission")] HRESULT maxCommission([out, retval] DOUBLE* pVal);
+		[propget, id(8), helpstring("property commissionCurrency")] HRESULT commissionCurrency([out, retval] BSTR* pVal);
+		[propget, id(9), helpstring("property warningText")] HRESULT warningText([out, retval] BSTR* pVal);
+	};
+
+	[
+		object,
+		uuid(58BDEC36-791C-4E2E-88A4-6E4339392B5B),
+		dual,
+		nonextensible,
+		helpstring("IExecution Interface"),
+		pointer_default(unique)
+	]
+	interface IExecution : IDispatch{
+		[propget, id(1), helpstring("property execId")] HRESULT execId([out, retval] BSTR* pVal);
+		[propget, id(2), helpstring("property orderId")] HRESULT orderId([out, retval] LONG* pVal);
+		[propget, id(3), helpstring("property clientId")] HRESULT clientId([out, retval] LONG* pVal);
+		[propget, id(4), helpstring("property permId")] HRESULT permId([out, retval] LONG* pVal);
+		[propget, id(5), helpstring("property time")] HRESULT time([out, retval] BSTR* pVal);
+		[propget, id(6), helpstring("property acctNumber")] HRESULT acctNumber([out, retval] BSTR* pVal);
+		[propget, id(7), helpstring("property exchange")] HRESULT exchange([out, retval] BSTR* pVal);
+		[propget, id(8), helpstring("property side")] HRESULT side([out, retval] BSTR* pVal);
+		[propget, id(9), helpstring("property shares")] HRESULT shares([out, retval] LONG* pVal);
+		[propget, id(10), helpstring("property price")] HRESULT price([out, retval] DOUBLE* pVal);
+		[propget, id(11), helpstring("property liquidation")] HRESULT liquidation([out, retval] LONG* pVal);
+		[propget, id(12), helpstring("property cumQty")] HRESULT cumQty([out, retval] LONG* pVal);
+		[propget, id(13), helpstring("property avgPrice")] HRESULT avgPrice([out, retval] DOUBLE* pVal);
+		[propget, id(14), helpstring("property orderRef")] HRESULT orderRef([out, retval] BSTR* pVal);
+		[propget, id(15), helpstring("property evRule")] HRESULT evRule([out, retval] BSTR* pVal);
+		[propget, id(16), helpstring("property evMultiplier")] HRESULT evMultiplier([out, retval] DOUBLE* pVal);
+	};
+
+	[
+		object,
+		uuid(3553EA07-F281-433D-B2A4-4CB722A9859B),
+		dual,
+		nonextensible,
+		helpstring("IExecutionFilter Interface"),
+		pointer_default(unique)
+	]
+	interface IExecutionFilter : IDispatch{
+		[propget, id(1), helpstring("property clientId")] HRESULT clientId([out, retval] LONG* pVal);
+		[propput, id(1), helpstring("property clientId")] HRESULT clientId([in] LONG newVal);
+		[propget, id(2), helpstring("property acctCode")] HRESULT acctCode([out, retval] BSTR* pVal);
+		[propput, id(2), helpstring("property acctCode")] HRESULT acctCode([in] BSTR newVal);
+		[propget, id(3), helpstring("property time")] HRESULT time([out, retval] BSTR* pVal);
+		[propput, id(3), helpstring("property time")] HRESULT time([in] BSTR newVal);
+		[propget, id(4), helpstring("property symbol")] HRESULT symbol([out, retval] BSTR* pVal);
+		[propput, id(4), helpstring("property symbol")] HRESULT symbol([in] BSTR newVal);
+		[propget, id(5), helpstring("property secType")] HRESULT secType([out, retval] BSTR* pVal);
+		[propput, id(5), helpstring("property secType")] HRESULT secType([in] BSTR newVal);
+		[propget, id(6), helpstring("property exchange")] HRESULT exchange([out, retval] BSTR* pVal);
+		[propput, id(6), helpstring("property exchange")] HRESULT exchange([in] BSTR newVal);
+		[propget, id(7), helpstring("property side")] HRESULT side([out, retval] BSTR* pVal);
+		[propput, id(7), helpstring("property side")] HRESULT side([in] BSTR newVal);
+	};
+
+	[
+		object,
+		uuid(6BBE7E50-795D-4C45-A69E-E1EEB7918DD2),
+		dual,
+		nonextensible,
+		helpstring("IScannerSubscription Interface"),
+		pointer_default(unique)
+	]
+	interface IScannerSubscription : IDispatch{
+		[propget, id(1), helpstring("property instrument")] HRESULT instrument([out, retval] BSTR* pVal);
+		[propput, id(1), helpstring("property instrument")] HRESULT instrument([in] BSTR newVal);
+		[propget, id(2), helpstring("property locations")] HRESULT locations([out, retval] BSTR* pVal);
+		[propput, id(2), helpstring("property locations")] HRESULT locations([in] BSTR newVal);
+		[propget, id(3), helpstring("property scanCode")] HRESULT scanCode([out, retval] BSTR* pVal);
+		[propput, id(3), helpstring("property scanCode")] HRESULT scanCode([in] BSTR newVal);
+		[propget, id(4), helpstring("property numberOfRows")] HRESULT numberOfRows([out, retval] LONG* pVal);
+		[propput, id(4), helpstring("property numberOfRows")] HRESULT numberOfRows([in] LONG newVal);
+		[propget, id(100), helpstring("property priceAbove")] HRESULT priceAbove([out, retval] DOUBLE* pVal);
+		[propput, id(100), helpstring("property priceAbove")] HRESULT priceAbove([in] DOUBLE newVal);
+		[propget, id(101), helpstring("property priceBelow")] HRESULT priceBelow([out, retval] DOUBLE* pVal);
+		[propput, id(101), helpstring("property priceBelow")] HRESULT priceBelow([in] DOUBLE newVal);
+		[propget, id(102), helpstring("property volumeAbove")] HRESULT volumeAbove([out, retval] LONG* pVal);
+		[propput, id(102), helpstring("property volumeAbove")] HRESULT volumeAbove([in] LONG newVal);
+		[propget, id(103), helpstring("property averageOptionVolumeAbove")] HRESULT averageOptionVolumeAbove([out, retval] LONG* pVal);
+		[propput, id(103), helpstring("property averageOptionVolumeAbove")] HRESULT averageOptionVolumeAbove([in] LONG newVal);
+		[propget, id(104), helpstring("property marketCapAbove")] HRESULT marketCapAbove([out, retval] DOUBLE* pVal);
+		[propput, id(104), helpstring("property marketCapAbove")] HRESULT marketCapAbove([in] DOUBLE newVal);
+		[propget, id(105), helpstring("property marketCapBelow")] HRESULT marketCapBelow([out, retval] DOUBLE* pVal);
+		[propput, id(105), helpstring("property marketCapBelow")] HRESULT marketCapBelow([in] DOUBLE newVal);
+		[propget, id(106), helpstring("property moodyRatingAbove")] HRESULT moodyRatingAbove([out, retval] BSTR* pVal);
+		[propput, id(106), helpstring("property moodyRatingAbove")] HRESULT moodyRatingAbove([in] BSTR newVal);
+		[propget, id(107), helpstring("property moodyRatingBelow")] HRESULT moodyRatingBelow([out, retval] BSTR* pVal);
+		[propput, id(107), helpstring("property moodyRatingBelow")] HRESULT moodyRatingBelow([in] BSTR newVal);
+		[propget, id(108), helpstring("property spRatingAbove")] HRESULT spRatingAbove([out, retval] BSTR* pVal);
+		[propput, id(108), helpstring("property spRatingAbove")] HRESULT spRatingAbove([in] BSTR newVal);
+		[propget, id(109), helpstring("property spRatingBelow")] HRESULT spRatingBelow([out, retval] BSTR* pVal);
+		[propput, id(109), helpstring("property spRatingBelow")] HRESULT spRatingBelow([in] BSTR newVal);
+		[propget, id(110), helpstring("property maturityDateAbove")] HRESULT maturityDateAbove([out, retval] BSTR* pVal);
+		[propput, id(110), helpstring("property maturityDateAbove")] HRESULT maturityDateAbove([in] BSTR newVal);
+		[propget, id(111), helpstring("property maturityDateBelow")] HRESULT maturityDateBelow([out, retval] BSTR* pVal);
+		[propput, id(111), helpstring("property maturityDateBelow")] HRESULT maturityDateBelow([in] BSTR newVal);
+		[propget, id(112), helpstring("property couponRateAbove")] HRESULT couponRateAbove([out, retval] DOUBLE* pVal);
+		[propput, id(112), helpstring("property couponRateAbove")] HRESULT couponRateAbove([in] DOUBLE newVal);
+		[propget, id(113), helpstring("property couponRateBelow")] HRESULT couponRateBelow([out, retval] DOUBLE* pVal);
+		[propput, id(113), helpstring("property couponRateBelow")] HRESULT couponRateBelow([in] DOUBLE newVal);
+		[propget, id(114), helpstring("property excludeConvertible")] HRESULT excludeConvertible([out, retval] LONG* pVal);
+		[propput, id(114), helpstring("property excludeConvertible")] HRESULT excludeConvertible([in] LONG newVal);
+		[propget, id(115), helpstring("property scannerSettingPairs")] HRESULT scannerSettingPairs([out, retval] BSTR* pVal);
+		[propput, id(115), helpstring("property scannerSettingPairs")] HRESULT scannerSettingPairs([in] BSTR newVal);
+		[propget, id(116), helpstring("property stockTypeFilter")] HRESULT stockTypeFilter([out, retval] BSTR* pVal);
+		[propput, id(116), helpstring("property stockTypeFilter")] HRESULT stockTypeFilter([in] BSTR newVal);
+	};
+
+	[
+		object,
+		uuid(639C4479-D0B6-49a3-B524-AEA6A9574945),
+		dual,
+		nonextensible,
+		helpstring("IOrderComboLeg Interface"),
+		pointer_default(unique)
+	]
+	interface IOrderComboLeg : IDispatch{
+		[propget, id(1), helpstring("property price")] HRESULT price([out, retval] DOUBLE* pVal);
+		[propput, id(1), helpstring("property price")] HRESULT price([in] DOUBLE newVal);
+	};
+
+	[
+		object,
+		uuid(39F18DDF-687D-421d-8BB9-4F389D69E428),
+		dual,
+		nonextensible,
+		helpstring("IOrderComboLegList Interface"),
+		pointer_default(unique),
+	]
+	interface IOrderComboLegList : IDispatch{
+		[propget, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** pVal);
+		[propget, id(DISPID_VALUE)] HRESULT Item([in] LONG index, [out, retval] IDispatch** pVal);
+		[propget, id(1)] HRESULT Count([out, retval] LONG* pVal);
+		[id(2)] HRESULT Add([out, retval] IDispatch** leg);
+	};
+
+	[
+		object,
+		uuid(51AE469F-D859-4537-A0BA-A93992F395BB),
+		dual,
+		nonextensible,
+		helpstring("ICommissionReport Interface"),
+		pointer_default(unique)
+	]
+	interface ICommissionReport : IDispatch{
+		[propget, id(1), helpstring("property execId")] HRESULT execId([out, retval] BSTR* pVal);
+		[propget, id(2), helpstring("property commission")] HRESULT commission([out, retval] DOUBLE* pVal);
+		[propget, id(3), helpstring("property currency")] HRESULT currency([out, retval] BSTR* pVal);
+		[propget, id(4), helpstring("property realizedPNL")] HRESULT realizedPNL([out, retval] DOUBLE* pVal);
+		[propget, id(5), helpstring("property yield")] HRESULT yield([out, retval] DOUBLE* pVal);
+		[propget, id(6), helpstring("property yieldRedemptionDate")] HRESULT yieldRedemptionDate([out, retval] LONG* pVal);
+	};
+
+	//  Primary dispatch interface for CTwsCtrl
+
+	[ uuid(0A77CCF6-052C-11D6-B0EC-00B0D074179C),
+	  helpstring("Dispatch interface for Tws Control"), hidden ]
+	dispinterface _DTws
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CTwsCtrl)
+			[id(1)] BSTR account;
+			[id(2)] BSTR tif;
+			[id(3)] BSTR oca;
+			[id(4)] BSTR orderRef;
+			[id(5)] LONG origin;
+			[id(6)] BOOL transmit;
+			[id(7)] BSTR openClose;
+			[id(8)] LONG parentId;
+			[id(9)] BOOL blockOrder;
+			[id(10)] BOOL sweepToFill;
+			[id(11)] LONG displaySize;
+			[id(12)] LONG triggerMethod;
+			[id(13)] BOOL outsideRth;
+			[id(14)] BOOL hidden;
+			[id(16)] LONG clientIdFilter;
+			[id(17)] BSTR acctCodeFilter;
+			[id(18)] BSTR timeFilter;
+			[id(19)] BSTR symbolFilter;
+			[id(20)] BSTR secTypeFilter;
+			[id(21)] BSTR exchangeFilter;
+			[id(22)] BSTR sideFilter;
+			[id(23)] DOUBLE discretionaryAmt;
+			[id(24)] LONG shortSaleSlot;
+			[id(25)] BSTR designatedLocation;
+			[id(26)] LONG ocaType;
+			[id(27)] LONG exemptCode;
+			[id(28)] BSTR rule80A;
+			[id(29)] BSTR settlingFirm;
+			[id(30)] BOOL allOrNone;
+			[id(31)] LONG minQty;
+			[id(32)] DOUBLE percentOffset;
+			[id(33)] BOOL eTradeOnly;
+			[id(34)] BOOL firmQuoteOnly;
+			[id(35)] DOUBLE nbboPriceCap;
+			[id(36)] LONG auctionStrategy;
+			[id(37)] DOUBLE startingPrice;
+			[id(38)] DOUBLE stockRefPrice;
+			[id(39)] DOUBLE delta;
+			[id(40)] DOUBLE stockRangeLower;
+			[id(41)] DOUBLE stockRangeUpper;
+			[id(42)] BSTR TwsConnectionTime;
+			[id(43)] LONG serverVersion;
+			[id(44)] BOOL overridePercentageConstraints;
+			[id(45)] DOUBLE volatility;
+			[id(46)] LONG volatilityType;
+			[id(47)] BSTR deltaNeutralOrderType;
+			[id(48)] DOUBLE deltaNeutralAuxPrice;
+			[id(49)] BOOL continuousUpdate;
+			[id(50)] LONG referencePriceType;
+			[id(51)] DOUBLE trailStopPrice;
+			[id(52)] LONG scaleInitLevelSize;
+			[id(53)] LONG scaleSubsLevelSize;
+			[id(54)] DOUBLE scalePriceIncrement;
+
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CTwsCtrl)
+			[id(55)] void cancelMktData(LONG id);
+			[id(56)] void cancelOrder(LONG id);
+			[id(57)] void placeOrder(LONG id, BSTR action, LONG quantity, BSTR symbol, BSTR secType, 
+									BSTR expiry, DOUBLE strike, BSTR right, BSTR multiplier,
+									BSTR exchange, BSTR primaryExchange, BSTR curency, BSTR orderType,
+									DOUBLE price, DOUBLE auxPrice, BSTR goodAfterTime, BSTR group,
+									BSTR faMethod, BSTR faPercentage, BSTR faProfile, BSTR goodTillDate);
+			[id(58)] void disconnect();
+			[id(59)] void connect(BSTR host, LONG port, LONG clientId, [in, defaultvalue(FALSE)] BOOL extraAuth);
+			[id(60)] void reqMktData(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, 
+									BSTR right, BSTR multiplier, BSTR exchange, BSTR primaryExchange,
+									BSTR currency, BSTR genericTicks, BOOL snapshot);
+			[id(61)] void reqOpenOrders();
+			[id(62)] void reqAccountUpdates(BOOL subscribe, BSTR acctCode);
+			[id(63)] void reqExecutions();
+			[id(64)] void reqIds(LONG numIds);
+			[id(65)] void reqMktData2(LONG id, BSTR localSymbol, BSTR secType, BSTR exchange, 
+									BSTR primaryExchange, BSTR currency, BSTR genericTicks,
+									BOOL snapshot);
+			[id(66)] void placeOrder2(LONG id, BSTR action, LONG quantity, BSTR localSymbol, 
+									BSTR secType, BSTR exchange, BSTR primaryExchange, BSTR curency,
+									BSTR orderType, DOUBLE lmtPrice, DOUBLE auxPrice,
+									BSTR goodAfterTime, BSTR group,
+									BSTR faMethod, BSTR faPercentage, BSTR faProfile, BSTR goodTillDate);
+			[id(67)] void reqContractDetails(BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike,
+									BSTR right, BSTR multiplier, BSTR exchange, BSTR curency, LONG includeExpired);
+			[id(68)] void reqContractDetails2(BSTR localSymbol, BSTR secType, BSTR exchange, BSTR curency, LONG includeExpired);
+			[id(69)] void reqMktDepth(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike,
+									BSTR right, BSTR multiplier, BSTR exchange, BSTR curency, LONG numRows);
+			[id(70)] void reqMktDepth2(LONG id, BSTR localSymbol, BSTR secType, BSTR exchange, BSTR curency, LONG numRows);
+			[id(71)] void cancelMktDepth(LONG id);
+			[id(72)] void addComboLeg(LONG conid, BSTR action, LONG ratio, BSTR exchange, LONG openClose, LONG shortSaleSlot, BSTR designatedLocation, LONG exemptCode);
+			[id(73)] void clearComboLegs();
+			[id(74)] void cancelNewsBulletins();
+			[id(75)] void reqNewsBulletins(BOOL allDaysMsgs);
+			[id(76)] void setServerLogLevel(LONG logLevel);
+			[id(77)] void reqAutoOpenOrders(BOOL bAutoBind);
+			[id(78)] void reqAllOpenOrders();
+			[id(79)] void reqManagedAccts();
+			[id(80)] void requestFA(LONG faDataType) ;
+			[id(81)] void replaceFA(LONG faDataType, BSTR cxml) ;
+			[id(82)] void reqHistoricalData(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, 
+									BSTR right, BSTR multiplier, BSTR exchange, BSTR curency, LONG isExpired,
+									BSTR endDateTime, BSTR durationStr,	BSTR barSizeSetting, BSTR whatToShow,
+									LONG useRTH, LONG formatDate);
+			[id(83)] void exerciseOptions(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, 
+									BSTR right, BSTR multiplier, BSTR exchange, BSTR curency,
+									LONG exerciseAction, LONG exerciseQuantity, LONG override);
+			[id(84)] void reqScannerParameters();
+			[id(85)] void reqScannerSubscription( LONG tickerId, LONG numberOfRows, BSTR instrument,
+						BSTR locationCode, BSTR scanCode, DOUBLE abovePrice, DOUBLE belowPrice,
+						LONG aboveVolume, DOUBLE marketCapAbove, DOUBLE marketCapBelow, BSTR moodyRatingAbove,
+						BSTR moodyRatingBelow, BSTR spRatingAbove, BSTR spRatingBelow,
+						BSTR maturityDateAbove, BSTR maturityDateBelow, DOUBLE couponRateAbove,
+						DOUBLE couponRateBelow, LONG excludeConvertible, LONG averageOptionVolumeAbove, 
+						BSTR scannerSettingPairs, BSTR stockTypeFilter);
+			[id(86)] void cancelHistoricalData( LONG tickerId );
+			[id(87)] void cancelScannerSubscription( LONG tickerId);
+			[id(88)] void resetAllProperties();
+			[id(89)] void reqRealTimeBars( LONG tickerId, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike,
+						BSTR right, BSTR multiplier, BSTR exchange, BSTR primaryExchange, BSTR currency,
+						LONG isExpired, LONG barSize, BSTR whatToShow, LONG useRTH);
+			[id(90)] void cancelRealTimeBars( LONG tickerId);
+			[id(91)] void reqCurrentTime(void);
+			[id(92)] void reqFundamentalData( LONG reqId, IContract* contract, BSTR reportType);
+			[id(93)] void cancelFundamentalData( LONG reqId);
+			[id(94)] void calculateImpliedVolatility(LONG reqId, IContract* contract, double optionPrice, double underPrice);
+			[id(95)] void calculateOptionPrice(LONG reqId, IContract* contract, double volatility, double underPrice);
+			[id(96)] void cancelCalculateImpliedVolatility(LONG reqId);
+			[id(97)] void cancelCalculateOptionPrice(LONG reqId);
+			[id(98)] void reqGlobalCancel(void);
+			[id(99)] void reqMarketDataType(LONG marketDataType);
+			
+			[id(100)] void reqContractDetailsEx(LONG reqId, IContract* contract);
+			[id(101)] void reqMktDataEx(LONG tickerId, IContract* contract, BSTR genericTicks, BOOL snapshot, ITagValueList* mktDataOptions);
+			[id(102)] void reqMktDepthEx(LONG tickerId, IContract* contract, LONG numRows, ITagValueList* mktDepthOptions);
+			[id(103)] void placeOrderEx(LONG orderId, IContract* contract, IOrder* order);
+			[id(104)] void reqExecutionsEx(LONG reqId, IExecutionFilter* filter);
+			[id(105)] void exerciseOptionsEx(LONG tickerId, IContract* contract, LONG exerciseAction,
+				LONG exerciseQuantity, BSTR account, LONG override);
+			[id(106)] void reqHistoricalDataEx(LONG tickerId, IContract* contract, BSTR endDateTime,
+				BSTR duration, BSTR barSize, BSTR whatToShow, BOOL useRTH, LONG formatDate, ITagValueList* chartOptions);
+			[id(107)] void reqRealTimeBarsEx(LONG tickerId, IContract* contract, LONG barSize, BSTR whatToShow, BOOL useRTH, ITagValueList* realTimeBarsOptions);
+			[id(108)] void reqScannerSubscriptionEx(LONG tickerId, IScannerSubscription* subscription, ITagValueList* scannerSubscriptionOptions);
+			[id(109)] void addOrderComboLeg(DOUBLE price);
+			[id(110)] void clearOrderComboLegs();
+			[id(111)] void reqPositions();
+			[id(112)] void cancelPositions();
+			[id(113)] void reqAccountSummary(LONG reqId, BSTR groupName, BSTR tags);
+			[id(114)] void cancelAccountSummary(LONG reqId);
+			[id(115)] void verifyRequest(BSTR apiName, BSTR apiVersion);
+			[id(116)] void verifyMessage(BSTR apiData);
+			[id(117)] void queryDisplayGroups(LONG reqId);
+			[id(118)] void subscribeToGroupEvents(LONG reqId, LONG groupId);
+			[id(119)] void updateDisplayGroup(LONG reqId, BSTR contractInfo);
+			[id(120)] void unsubscribeFromGroupEvents(LONG reqId);
+
+			[id(200)] IContract*            createContract(void);
+			[id(201)] IComboLegList*        createComboLegList(void);
+			[id(202)] IOrder*               createOrder(void);
+			[id(203)] IExecutionFilter*     createExecutionFilter(void);
+			[id(204)] IScannerSubscription* createScannerSubscription(void);
+			[id(205)] IUnderComp*           createUnderComp(void);
+			[id(206)] ITagValueList*        createTagValueList(void);
+			[id(207)] IOrderComboLegList*   createOrderComboLegList(void);
+			//}}AFX_ODL_METHOD
+};
+
+	//  Event dispatch interface for CTwsCtrl
+
+	[ uuid(0A77CCF7-052C-11D6-B0EC-00B0D074179C),
+	  helpstring("Event interface for Tws Control") ]
+	dispinterface _DTwsEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CTwsCtrl)
+			[id(1)] void tickPrice(LONG id, LONG tickType, DOUBLE price, int canAutoExecute);
+			[id(2)] void tickSize(LONG id, LONG tickType, LONG size);
+			[id(3)] void connectionClosed();
+			[id(4)] void openOrder1(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, BSTR right, BSTR exchange, BSTR curency, BSTR localSymbol);
+			[id(5)] void openOrder2(LONG id, BSTR action, LONG quantity, BSTR orderType, DOUBLE lmtPrice, DOUBLE auxPrice, BSTR tif, BSTR ocaGroup, BSTR account, BSTR openClose, LONG origin, BSTR orderRef, LONG clientId);
+			[id(6)] void updateAccountTime(BSTR timeStamp);
+			[id(7)] void updateAccountValue(BSTR key, BSTR value, BSTR curency, BSTR accountName);
+			[id(8)] void nextValidId(LONG id);
+			[id(10)] void permId(LONG id, LONG permId);
+			[id(11)] void errMsg(LONG id, LONG errorCode, BSTR errorMsg);
+			[id(12)] void updatePortfolio(BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, BSTR right, BSTR curency, BSTR localSymbol, LONG position, DOUBLE marketPrice, DOUBLE marketValue, DOUBLE averageCost, DOUBLE unrealizedPNL, DOUBLE realizedPNL, BSTR accountName);
+			[id(13)] void orderStatus(LONG id, BSTR status, LONG filled, LONG remaining, DOUBLE avgFillPrice, LONG permId, LONG parentId, DOUBLE lastFillPrice, LONG clientId, BSTR whyHeld);
+			[id(14)] void contractDetails(BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, BSTR right, BSTR exchange, BSTR curency, BSTR localSymbol, BSTR marketName, BSTR tradingClass, LONG conId, DOUBLE minTick, LONG priceMagnifier, BSTR multiplier, BSTR orderTypes, BSTR validExchanges);
+			[id(15)] void execDetails(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, BSTR right, BSTR cExchange, BSTR curency, BSTR localSymbol, BSTR execId, BSTR time, BSTR acctNumber, BSTR eExchange, BSTR side, LONG shares, DOUBLE price, LONG permId, LONG clientId, int isLiquidation);
+			[id(16)] void updateMktDepth(LONG id, LONG position, LONG operation, LONG side, DOUBLE price, LONG size);
+			[id(17)] void updateMktDepthL2(LONG id, LONG position, BSTR marketMaker, LONG operation, LONG side, DOUBLE price, LONG size);
+			[id(18)] void updateNewsBulletin(short msgId, short msgType, BSTR message, BSTR origExchange);
+			[id(19)] void managedAccounts(BSTR accountsList);
+			[id(20)] void openOrder3(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, BSTR right, BSTR exchange, BSTR curency, BSTR localSymbol, BSTR action, LONG quantity, BSTR orderType, DOUBLE lmtPrice, DOUBLE auxPrice, BSTR tif, BSTR ocaGroup, BSTR account, BSTR openClose, LONG origin, BSTR orderRef, LONG clientId, LONG permId, BSTR sharesAllocation, BSTR faGroup, BSTR faMethod, BSTR faPercentage, BSTR faProfile, BSTR goodAfterTime, BSTR goodTillDate);
+			[id(21)] void receiveFA(LONG faDataType, BSTR cxml) ;
+			[id(22)] void historicalData(LONG reqId, BSTR date, DOUBLE open, DOUBLE high, DOUBLE low, DOUBLE close, LONG volume, LONG barCount, DOUBLE WAP, LONG hasGaps) ;
+			[id(23)] void openOrder4(LONG id, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, BSTR right, BSTR exchange, BSTR curency, BSTR localSymbol, BSTR action, LONG quantity, BSTR orderType, DOUBLE lmtPrice, DOUBLE auxPrice, BSTR tif, BSTR ocaGroup, BSTR account, BSTR openClose, LONG origin, BSTR orderRef, LONG clientId, LONG permId, BSTR sharesAllocation, BSTR faGroup, BSTR faMethod, BSTR faPercentage, BSTR faProfile, BSTR goodAfterTime, BSTR goodTillDate, LONG ocaType, BSTR rule80A, BSTR settlingFirm, int allOrNone, LONG minQty, DOUBLE percentOffset, int eTradeOnly, int firmQuoteOnly, DOUBLE nbboPriceCap, LONG auctionStrategy, DOUBLE startingPrice, DOUBLE stockRefPrice, DOUBLE delta, DOUBLE stockRangeLower, DOUBLE stockRangeUpper, int blockOrder, int sweepToFill, int ignoreRth, int hidden, DOUBLE discretionaryAmt, LONG displaySize, LONG parentId, LONG triggerMethod, LONG shortSaleSlot, BSTR designatedLocation, DOUBLE volatility, LONG volatilityType, BSTR deltaNeutralOrderType, DOUBLE deltaNeutralAuxPrice, int continuousUpdate, int referencePriceType, DOUBLE trailStopPrice, DOUBLE basisPoints, LONG basisPointsType, BSTR legsStr, LONG scaleInitLevelSize, LONG scaleSubsLevelSize, DOUBLE scalePriceIncrement);
+			[id(24)] void bondContractDetails(BSTR symbol, BSTR secType, BSTR cusip, DOUBLE coupon, BSTR maturity, BSTR issueDate, BSTR ratings, BSTR bondType, BSTR couponType, LONG convertible, LONG callable, LONG putable, BSTR descAppend, BSTR exchange, BSTR curency, BSTR marketName, BSTR tradingClass, LONG conId, DOUBLE minTick, BSTR orderTypes, BSTR validExchanges, BSTR nextOptionDate, BSTR nextOptionType, LONG nextOptionPartial, BSTR notes);
+			[id(25)] void scannerParameters(BSTR xml);
+			[id(26)] void scannerData(LONG reqId, LONG rank, BSTR symbol, BSTR secType, BSTR expiry, DOUBLE strike, BSTR right, BSTR exchange, BSTR curency, BSTR localSymbol, BSTR marketName, BSTR tradingClass, BSTR distance, BSTR benchmark, BSTR projection, BSTR legsStr);
+			[id(27)] void tickOptionComputation(LONG id, LONG tickType, DOUBLE impliedVol, DOUBLE delta, DOUBLE optPrice, DOUBLE pvDividend, DOUBLE gamma, DOUBLE vega, DOUBLE theta, DOUBLE undPrice);
+			[id(28)] void tickGeneric(LONG id, LONG tickType, DOUBLE value);
+			[id(29)] void tickString(LONG id, LONG tickType, BSTR value);
+			[id(30)] void tickEFP(LONG tickerId, LONG field, DOUBLE basisPoints, BSTR formattedBasisPoints,
+			                      DOUBLE totalDividends, LONG holdDays, BSTR futureExpiry, DOUBLE dividendImpact,
+					              DOUBLE dividendsToExpiry);
+			[id(31)] void realtimeBar(LONG tickerId, LONG time, DOUBLE open, DOUBLE high, DOUBLE low, DOUBLE close,
+									  LONG volume, DOUBLE WAP, LONG count);
+			[id(32)] void currentTime(LONG time);
+			[id(33)] void scannerDataEnd(LONG reqId);
+			[id(34)] void fundamentalData(LONG reqId, BSTR data);
+			[id(35)] void contractDetailsEnd(LONG reqId);
+			[id(36)] void openOrderEnd();
+			[id(37)] void accountDownloadEnd(BSTR accountName);
+			[id(38)] void execDetailsEnd(LONG reqId);
+			[id(39)] void deltaNeutralValidation(LONG reqId, IUnderComp* underComp);
+			[id(40)] void tickSnapshotEnd(LONG reqId);
+			[id(41)] void marketDataType(LONG reqId, LONG marketDataType);
+
+			[id(100)] void contractDetailsEx(LONG reqId, IContractDetails* contractDetails);
+			[id(101)] void openOrderEx(LONG orderId, IContract* contract, IOrder* order, IOrderState* orderState);
+			[id(102)] void execDetailsEx(LONG reqId, IContract* contract, IExecution* execution);
+			[id(103)] void updatePortfolioEx(IContract* contract, LONG position, DOUBLE marketPrice,
+				DOUBLE marketValue, DOUBLE averageCost, DOUBLE unrealizedPNL, DOUBLE realizedPNL, BSTR accountName);
+			[id(104)] void scannerDataEx(LONG reqId, LONG rank, IContractDetails* contractDetails, BSTR distance, BSTR benchmark, BSTR projection, BSTR legsStr);
+			[id(105)] void commissionReport(ICommissionReport* commissionReport);
+			[id(106)] void position( BSTR account, IContract* contract, LONG position, DOUBLE avgCost);
+			[id(107)] void positionEnd();
+			[id(108)] void accountSummary(LONG reqId, BSTR account, BSTR tag, BSTR value, BSTR curency);
+			[id(109)] void accountSummaryEnd(LONG reqId);
+			[id(110)] void verifyMessageAPI( BSTR apiData);
+			[id(111)] void verifyCompleted( BOOL isSuccessful, BSTR errorText);
+			[id(112)] void displayGroupList( LONG reqId, BSTR groups);
+			[id(113)] void displayGroupUpdated( LONG reqId, BSTR contractInfo);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CTwsCtrl
+
+
+	[ uuid(0A77CCF8-052C-11D6-B0EC-00B0D074179C),
+	  helpstring("Tws Control"), control ]
+	coclass Tws
+	{
+		[default] dispinterface _DTws;
+		[default, source] dispinterface _DTwsEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
