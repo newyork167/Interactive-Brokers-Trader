@@ -2,13 +2,13 @@
 using System.Windows.Forms;
 using TwsDLL;
 
+
 namespace TwsDemo
 {
     public partial class Form1 : Form
     {
         private EWrapperImpl _ibClient;
         private bool _connected = false;
-        private Tws tws;
         private Form2 form2;
 
         public Form1()
@@ -24,7 +24,6 @@ namespace TwsDemo
         private void button1_Click(object sender, EventArgs e)
         {
             _ibClient = new EWrapperImpl();
-            tws = new Tws(_ibClient);
 
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
@@ -41,7 +40,7 @@ namespace TwsDemo
                     try
                     {
                         _connected = true;
-                        tws.Connect(textBox1.Text, Convert.ToInt32(textBox2.Text), 0);
+                        Tws.Connect(_ibClient, textBox1.Text, Convert.ToInt32(textBox2.Text), 0);
                         //_connected = tws.IsConnected();
                     }
                     catch (Exception ex)
@@ -54,7 +53,7 @@ namespace TwsDemo
 
             if (!_connected) return;
 
-            form2 = new Form2(tws);
+            form2 = new Form2(_ibClient);
             Visible = false;
             form2.Visible = true;
         }

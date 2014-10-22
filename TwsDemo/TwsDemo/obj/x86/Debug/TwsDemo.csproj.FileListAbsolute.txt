@@ -22,3 +22,12 @@ D:\GitHub\Interactive-Brokers-Trader\TwsDemo\TwsDemo\bin\Debug\TwsDemo.pdb
 D:\GitHub\Interactive-Brokers-Trader\TwsDemo\TwsDemo\bin\Debug\TwsDLL.dll
 D:\GitHub\Interactive-Brokers-Trader\TwsDemo\TwsDemo\bin\Debug\TWSLib.dll
 D:\GitHub\Interactive-Brokers-Trader\TwsDemo\TwsDemo\bin\Debug\TwsDLL.pdb
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\obj\x86\Debug\TwsDemo.exe
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\obj\x86\Debug\TwsDemo.pdb
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\bin\Debug\TwsDemo.exe
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\bin\Debug\TwsDemo.pdb
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\obj\x86\Debug\TwsDemo.csprojResolveAssemblyReference.cache
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\obj\x86\Debug\TwsDemo.Form1.resources
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\obj\x86\Debug\TwsDemo.Properties.Resources.resources
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\obj\x86\Debug\TwsDemo.csproj.GenerateResource.Cache
+C:\Users\Cody\Desktop\Interactive-Brokers-Trader\trunk\TwsDemo\TwsDemo\obj\x86\Debug\TwsDemo.ComboboxItem.resources

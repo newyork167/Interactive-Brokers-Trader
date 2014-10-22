@@ -4,7 +4,7 @@ using IBApi;
 
 namespace TwsDLL
 {
-    public class Static
+    public class TwsStatic
     {
         public static Contract CreateContract(String symbol, String secType = "STK", String exchange = "SMART",
             String currency = "USD")
