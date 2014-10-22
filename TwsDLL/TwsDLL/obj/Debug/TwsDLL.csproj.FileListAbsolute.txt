@@ -1,0 +1,6 @@
+c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\bin\Debug\TwsDLL.dll
+c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\bin\Debug\TwsDLL.pdb
+c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\bin\Debug\TWSLib.dll
+c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\obj\Debug\TwsDLL.csprojResolveAssemblyReference.cache
+c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\obj\Debug\TwsDLL.dll
+c:\users\codyd\documents\visual studio 2010\Projects\TwsDLL\TwsDLL\obj\Debug\TwsDLL.pdb
